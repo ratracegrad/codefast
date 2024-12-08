@@ -50,7 +50,10 @@ export default function Pricing() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {pricingList.map((pricing, index) => (
-            <div className="p-8 bg-base-100 max-w-96 rounded-3xl mx-auto space-y-6">
+            <div
+              key={index}
+              className="p-8 bg-base-100 max-w-96 rounded-3xl mx-auto space-y-6"
+            >
               <div className="flex gap-2 items-baseline">
                 <div className="text-4xl font-black">$19</div>
                 <div className="uppercase text-sm font-medium opacity-60">
@@ -59,8 +62,8 @@ export default function Pricing() {
               </div>
 
               <ul className="space-y-2">
-                {pricing.features.map((feature, index) => (
-                  <ListItem key={index}>{feature}</ListItem>
+                {pricing.features.map((feature, featureIndex) => (
+                  <ListItem key={featureIndex}>{feature}</ListItem>
                 ))}
               </ul>
               <ButtonPricing title={'Buy Now'} extraStyle="w-full" />
