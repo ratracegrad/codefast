@@ -4,6 +4,7 @@ import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 
 export default function Home() {
+  console.log(process.env.MONGO_URI);
   return (
     <main>
       <Header />
