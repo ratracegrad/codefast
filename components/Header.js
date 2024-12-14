@@ -3,6 +3,8 @@ import ButtonLogin from './ButtonLogin';
 import Link from 'next/link';
 
 export default function Header() {
+  const isLoggedIn = false;
+
   return (
     <section className=" flex w-full items-center justify-between max-w-5xl mx-auto px-8 py-2 rounded-full mt-10 border-2 border-zinc-700">
       <div>CodeFastSaaS</div>
@@ -15,7 +17,7 @@ export default function Header() {
         </Link>
       </div>
       <div>
-        <ButtonLogin />
+        <ButtonLogin isLoggedIn={isLoggedIn} extraStyle='w-full' />
       </div>
     </section>
   );

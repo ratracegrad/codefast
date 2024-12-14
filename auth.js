@@ -1,16 +1,22 @@
 import NextAuth from 'next-auth';
-import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from './libs/mongodb';
 import Resend from 'next-auth/providers/resend';
+// import Google from "next-auth/providers/google";
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import clientPromise from './libs/mongo';
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+const config = {
   providers: [
     Resend({
-      // If your environment variable is named differently than default
       apiKey: process.env.RESEND_KEY,
-      from: 'no-reply@resend.werise.tech',
+      from: 'noreply@resend.codefastsaas.com',
       name: 'Email',
     }),
+    // Google({
+    // 	clientId: process.env.GOOGLE_ID,
+    // 	clientSecret: process.env.GOOGLE_SECRET,
+    // }),
   ],
   adapter: MongoDBAdapter(clientPromise),
-});
+};
+
+export const { handlers, signIn, signOut, auth } = NextAuth(config);

@@ -1,18 +1,29 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
 
-export default function ButtonLogin({ isLoggedIn }) {
+import Link from 'next/link';
+import { signIn } from 'next-auth/react';
+
+const ButtonLogin = ({ isLoggedIn, extraStyle }) => {
+  const dashboardUrl = '/dashboard';
+
   if (isLoggedIn) {
     return (
       <button className="btn btn-primary">
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href={dashboardUrl}>Dashboard</Link>
       </button>
     );
   }
 
   return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      <Link href="/api/auth/logIn">Login</Link>
+    <button
+      className={`btn btn-primary ${extraStyle ? extraStyle : ''}`}
+      onClick={() => {
+        signIn(undefined, { callbackUrl: dashboardUrl });
+      }}
+    >
+      Get Started
     </button>
   );
-}
+};
+
+export default ButtonLogin;
