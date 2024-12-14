@@ -8,7 +8,7 @@ const config = {
   providers: [
     Resend({
       apiKey: process.env.RESEND_KEY,
-      from: 'noreply@resend.werise.com',
+      from: 'noreply@resend.werise.tech',
       name: 'Email',
     }),
     // Google({
