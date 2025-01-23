@@ -22,17 +22,17 @@ export default async function Dashboard() {
     <main className="bg-base-200 min-h-screen">
       {/* HEADER */}
       <section className="bg-base-100">
-        <div className="max-w-5xl mx-auto px-5 py-3 flex justify-between">
+        <div className="max-w-5xl mx-auto px-5 py-3 flex justify-end">
           {user.hasAccess ? <ButtonPortal /> : <ButtonCheckout />}
           <ButtonLogout />
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-5 py-12 space-y-12">
+      <section className="max-w-5xl mx-auto px-5 py-12">
         <FormNewBoard />
 
         <div>
-          <h1 className="font-extrabold text-xl mb-4">
+          <h1 className="font-extrabold text-xl my-4">
             {user.boards.length} Boards
           </h1>
 

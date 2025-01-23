@@ -17,7 +17,7 @@ export async function POST(req) {
 
     const session = await auth();
     if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
     }
 
     await connectMongo();
@@ -32,7 +32,7 @@ export async function POST(req) {
     user.boards.push(board._id);
     await user.save();
 
-    return NextResponse.json({});
+    return NextResponse.json({board});
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

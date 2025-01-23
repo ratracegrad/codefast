@@ -18,16 +18,17 @@ const FormNewBoard = () => {
     setIsLoading(true);
 
     try {
+      // 1. Async call to API to create a new board
       const data = await axios.post('/api/board', { name });
 
       setName('');
-
       toast.success('Board created!');
 
-      // router.refresh();
+      router.refresh();
 
       // 2. Redirect to dedicated board page
     } catch (error) {
+      // 1. Display error message
       const errorMessage =
         error.response?.data?.error || error.message || 'Something went wrong';
 
@@ -42,6 +43,7 @@ const FormNewBoard = () => {
       className="bg-base-100 p-8 rounded-3xl space-y-8"
       onSubmit={handleSubmit}
     >
+      {/* TITLE */}
       <p className="font-bold text-lg">Create a new feedback board</p>
 
       <label className="form-control w-full">
@@ -58,6 +60,7 @@ const FormNewBoard = () => {
         />
       </label>
 
+      {/* BUTTON */}
       <button className="btn btn-primary w-full" type="submit">
         {isLoading && (
           <span className="loading loading-spinner loading-xs"></span>
