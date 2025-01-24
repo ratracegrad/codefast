@@ -22,7 +22,7 @@ export default async function Dashboard() {
     <main className="bg-base-200 min-h-screen">
       {/* HEADER */}
       <section className="bg-base-100">
-        <div className="max-w-5xl mx-auto px-5 py-3 flex justify-end">
+        <div className="max-w-5xl mx-auto px-5 py-3 flex justify-between">
           {user.hasAccess ? <ButtonPortal /> : <ButtonCheckout />}
           <ButtonLogout />
         </div>

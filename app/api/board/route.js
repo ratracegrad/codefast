@@ -24,6 +24,13 @@ export async function POST(req) {
 
     const user = await User.findById(session.user.id);
 
+    if (!user.hasAcess) {
+      return NextResponse.json(
+        { error: 'Please subscribe first' },
+        { status: 403 }
+      );
+    }
+
     const board = await Board.create({
       userId: user._id,
       name: body.name,
@@ -58,9 +65,16 @@ export async function DELETE(req) {
       return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
     }
 
-    await Board.deleteOne({ _id: boardId, userId: session?.user?.id });
-
     const user = await User.findById(session?.user?.id);
+
+    if (!user.hasAcess) {
+      return NextResponse.json(
+        { error: 'Please subscribe first' },
+        { status: 403 }
+      );
+    }
+
+    await Board.deleteOne({ _id: boardId, userId: session?.user?.id });
     user.boards = user.boards.filter((id) => id.toString() !== boardId);
 
     await user.save();
