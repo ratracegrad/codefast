@@ -19,7 +19,7 @@ const FormNewBoard = () => {
 
     try {
       // 1. Async call to API to create a new board
-      const data = await axios.post('/api/board', { name });
+      await axios.post('/api/board', { name });
 
       setName('');
       toast.success('Board created!');
