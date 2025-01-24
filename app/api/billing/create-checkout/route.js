@@ -37,8 +37,7 @@ export async function POST(req) {
       });
 
       return NextResponse.json({ url: stripeCheckoutSession.url });
-	} catch (error) {
-		console.error(error);
+	} catch (e) {
 		return NextResponse.json({ error: e.message }, { status: 500 });
 	}
 }

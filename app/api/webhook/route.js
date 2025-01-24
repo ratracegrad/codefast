@@ -6,7 +6,6 @@ import User from '@/models/User';
 
 export async function POST(req) {
   try {
-    console.log('Stripe webhook received');
     // 1. Verify the webhook event is from Stripe
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
