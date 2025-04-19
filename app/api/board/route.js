@@ -24,7 +24,7 @@ export async function POST(req) {
 
     const user = await User.findById(session.user.id);
 
-    if (!user.hasAcess) {
+    if (!user.hasAccess) {
       return NextResponse.json(
         { error: 'Please subscribe first' },
         { status: 403 }
@@ -67,7 +67,7 @@ export async function DELETE(req) {
 
     const user = await User.findById(session?.user?.id);
 
-    if (!user.hasAcess) {
+    if (!user.hasAccess) {
       return NextResponse.json(
         { error: 'Please subscribe first' },
         { status: 403 }

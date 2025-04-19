@@ -29,7 +29,8 @@ const FormAddPost = ({ boardId }) => {
 
       toast.success('Post added!');
 
-      router.refresh();
+      // Refresh the page to see the new post
+      router.refresh(); 
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || error.message || 'Something went wrong';

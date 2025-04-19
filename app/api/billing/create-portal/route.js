@@ -10,7 +10,7 @@ export async function POST(req) {
 
     if (!body.returnUrl) {
       return NextResponse.json(
-        { error: 'returnlUrl are required' },
+        { error: 'Return Url is required' },
         { status: 400 }
       );
     }
