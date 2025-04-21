@@ -3,7 +3,6 @@ import { auth } from '@/auth';
 import connectMongo from '@/libs/mongoose';
 import Post from '@/models/Post';
 import User from '@/models/User';
-import Board from '@/models/Board';
 import { Filter } from 'bad-words';
 
 export async function POST(req) {

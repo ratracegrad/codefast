@@ -20,7 +20,7 @@ export async function POST(req) {
     return NextResponse.json({ message: 'Vote added' });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: e?.message || 'Error adding vote' }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Error adding vote' }, { status: 500 });
   }
 }
 
@@ -42,6 +42,6 @@ export async function DELETE(req) {
     return NextResponse.json({ message: 'Vote added' });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: e?.message || 'Error adding vote' }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Error adding vote' }, { status: 500 });
   }
 }
